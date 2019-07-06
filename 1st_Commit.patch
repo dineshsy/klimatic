@@ -1,0 +1,15 @@
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- README.md	(date 1562429700000)
++++ README.md	(date 1562430379622)
+@@ -1,6 +1,6 @@
+ # klimatic
+ 
+-A new Flutter application.
++A new Flutter application..
+ 
+ ## Getting Started
+ 
