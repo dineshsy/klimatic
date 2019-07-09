@@ -52,7 +52,6 @@ class _KlimaticState extends State<Klimatic> {
                 image: DecorationImage(
                     image: AssetImage("images/umbrella.png"),
                     fit: BoxFit.cover)),
-
             child: Stack(
               children: <Widget>[
                 Container(
