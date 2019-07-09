@@ -49,12 +49,11 @@ class _KlimaticState extends State<Klimatic> {
                 .size
                 .height,
             decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("images/umbrella.png"),
-                    fit: BoxFit.cover)
-            ),
+                image: DecorationImage(
+                    image: AssetImage("images/umbrella.png"),
+                    fit: BoxFit.cover)),
             child: Stack(
               children: <Widget>[
-
                 Container(
                   alignment: Alignment.topRight,
                   margin: EdgeInsets.fromLTRB(0.0, 10.0, 15.0, 0.0),
