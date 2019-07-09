@@ -52,7 +52,6 @@ class _KlimaticState extends State<Klimatic> {
                 image: DecorationImage(
                     image: AssetImage("images/umbrella.png"),
                     fit: BoxFit.cover)),
-
             child: Stack(
               children: <Widget>[
                 Container(
@@ -141,61 +140,70 @@ class _GetCityState extends State<GetCity> {
         centerTitle: true,
         backgroundColor: Colors.blueAccent,
       ),
-      body: Stack(children: <Widget>[
-        Image.asset(
-          "images/white_snow.png",
-          width: 450.0,
-          height: 550.0,
-          fit: BoxFit.fill,
-        ),
-        Container(
-            alignment: Alignment.topCenter,
-            child: Form(
-              key: formKey,
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: TextFormField(
-                      controller: cityController,
-                      validator: (value) {
-                        if (value.isEmpty) {
-                          return "Please Enter A City";
-                        }
-                      },
-                      decoration: InputDecoration(
-                          labelText: "City",
-                          errorText:
-                              _hasInputError ? "Please Enter City" : null,
-                          border: OutlineInputBorder()),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: FlatButton(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            "Update",
-                            style: TextStyle(fontSize: 25.0),
-                          ),
-                        ),
-                        color: Colors.redAccent,
-                        onPressed: () {
-                          if (!formKey.currentState.validate()) {
-                            return;
+      body: Container(
+        width: MediaQuery
+            .of(context)
+            .size
+            .width,
+        height: MediaQuery
+            .of(context)
+            .size
+            .height,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("images/white_snow.png"),
+                fit: BoxFit.cover)),
+        child: Stack(children: <Widget>[
+
+          Container(
+              alignment: Alignment.topCenter,
+              child: Form(
+                key: formKey,
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: TextFormField(
+                        controller: cityController,
+                        validator: (value) {
+                          if (value.isEmpty) {
+                            return "Please Enter A City";
                           }
-                          Navigator.pop(context, {
-                            'info': cityController.text == null
-                                ? util.defaultCity
-                                : cityController.text
-                          });
-                        }),
-                  )
-                ],
-              ),
-            )),
-      ]),
+                        },
+                        decoration: InputDecoration(
+                            labelText: "City",
+                            errorText:
+                            _hasInputError ? "Please Enter City" : null,
+                            border: OutlineInputBorder()),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: FlatButton(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Update",
+                              style: TextStyle(fontSize: 25.0),
+                            ),
+                          ),
+                          color: Colors.redAccent,
+                          onPressed: () {
+                            if (!formKey.currentState.validate()) {
+                              return;
+                            }
+                            Navigator.pop(context, {
+                              'info': cityController.text == null
+                                  ? util.defaultCity
+                                  : cityController.text
+                            });
+                          }),
+                    )
+                  ],
+                ),
+              )),
+        ]),
+      ),
     );
   }
 }
